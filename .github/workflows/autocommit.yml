@@ -10,29 +10,29 @@ on:
 
 jobs:
   auto-commit:
-  runs-on: ubuntu-latest
-  permissions:
-    contents: write
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
-  steps:
-    - name: Checkout repo
-      uses: actions/checkout@v4
-      with:
-        ref: master
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: master
 
-    - name: Make changes
-      run: |
-        echo "Updated at $(date)" >> update-log.txt
+      - name: Make changes
+        run: |
+          echo "Updated at $(date)" >> update-log.txt
 
-    - name: Configure Git
-      run: |
-        git config --global user.name "Izzatul Muttaqin"
-        git config --global user.email "izzatul.muttaqin@email.com"
+      - name: Configure Git
+        run: |
+          git config --global user.name "Izzatul Muttaqin"
+          git config --global user.email "izzatul.muttaqin@gmail.com"
 
-    - name: Commit and push
-      run: |
-        git add .
-        git commit -m "chore: auto-update log [skip ci]"
-        git push origin HEAD
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit and push
+        run: |
+          git add .
+          git commit -m "chore: auto-update log"
+          git push origin HEAD
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
