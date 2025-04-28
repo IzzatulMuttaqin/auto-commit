@@ -6,7 +6,7 @@ on:
       - master
       
   schedule:
-  - cron: "0 6 * * 1-5"
+  - cron: "0 0 * * 1-5"
 
 jobs:
   auto-commit:
@@ -22,7 +22,7 @@ jobs:
 
       - name: Make changes
         run: |
-          echo "Updated at $(date)" >> update-log.txt
+          echo "Updated at $(date)" > update-log.txt
 
       - name: Configure Git
         run: |
